@@ -27,12 +27,14 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
         findViewById(R.id.btnInterstitialRequest).setOnClickListener(this);
 
         // 애드립 매니저 생성
+        //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
         adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
 
         // 테스트 모드 셋팅
+        //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
         adlibManager.setTestMode(AdlibTestProjectConstants.ADLIB_TEST_MODE);
 
-        // 애드립 광고 리스너 생성
+        // 애드립 광고 리스너 등록
         adlibManager.setAdListener(new AdlibAdListener() {
             @Override
             public void onReceiveAd() {

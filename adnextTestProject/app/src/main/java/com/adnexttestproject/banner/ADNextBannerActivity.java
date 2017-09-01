@@ -22,9 +22,6 @@ public class ADNextBannerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adnextbanner);
 
-        // 배너 광고 레이아웃
-        abs = (FrameLayout) findViewById(R.id.abs);
-
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
         adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
@@ -55,6 +52,9 @@ public class ADNextBannerActivity extends AppCompatActivity {
                 Log.d("ADNext", "[Banner] onClosed");
             }
         });
+
+        // 배너 광고 레이아웃
+        abs = (FrameLayout) findViewById(R.id.abs);
 
         // 배너 광고 로딩
         adlibManager.bannerViewLoad(abs);
