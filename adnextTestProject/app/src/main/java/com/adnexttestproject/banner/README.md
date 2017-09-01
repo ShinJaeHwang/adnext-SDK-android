@@ -86,3 +86,8 @@ adlibManager.bannerViewLoad(adView);
 // 띠 배너 삭제
 adlibManager.destoryBannerView();
 ```
+
+<br>
+
+## 띠 배너 연동
+>
