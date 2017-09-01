@@ -1,27 +1,30 @@
-package com.adnexttestproject;
+package com.adnexttestproject.interstitial;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.FrameLayout;
+import android.view.View;
+import android.widget.Toast;
 
+import com.adnexttestproject.AdlibTestProjectConstants;
+import com.adnexttestproject.R;
 import com.mocoplex.adnext.AdlibAdListener;
 import com.mocoplex.adnext.AdlibManager;
 import com.mocoplex.adnext.common.AdlibState;
 
-// Banner
-public class TestActivity1 extends AppCompatActivity {
+// Interstitial
+public class ADNextInterstitialActivity extends AppCompatActivity implements
+        View.OnClickListener {
 
-    private AdlibManager adlibManager;                                            // 애드립 매니저
-    private FrameLayout abs;                                                 // 배너 레이아웃
+    private AdlibManager adlibManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test1);
+        setContentView(R.layout.activity_adnextinterstitial);
 
-        // 프레임 레이아웃 생성
-        abs = (FrameLayout) findViewById(R.id.abs);
+        // 버튼 클릭 리스너
+        findViewById(R.id.btnInterstitialRequest).setOnClickListener(this);
 
         // 애드립 매니저 생성
         adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
@@ -33,26 +36,26 @@ public class TestActivity1 extends AppCompatActivity {
         adlibManager.setAdListener(new AdlibAdListener() {
             @Override
             public void onReceiveAd() {
-                Log.d("ADNext", "[Banner] onReceiveAd ");
+                Log.d("ADNext", "[Interstitial] onReceiveAd ");
             }
 
             @Override
             public void onFailedToReceiveAd(AdlibState error) {
-                Log.d("ADNext", "[Banner] onFailedToReceiveAd " + error.toString());
+                Log.d("ADNext", "[Interstitial] onFailedToReceiveAd " + error.toString());
+                Toast.makeText(getApplicationContext(), "광고수신 실패 :)", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onClicked() {
-                Log.d("ADNext", "[Banner] onClickAd");
+                Log.d("ADNext", "[Interstitial] onClickAd");
             }
 
             @Override
             public void onClosed() {
-                Log.d("ADNext", "[Banner] onClosed");
+                Log.d("ADNext", "[Interstitial] onClosed");
             }
         });
-        // 광고 로딩
-        adlibManager.bannerViewLoad(abs);
+
     }
 
     @Override
@@ -71,5 +74,17 @@ public class TestActivity1 extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         adlibManager.onDestroy();
+    }
+
+    // 버튼 클릭 이벤트
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnInterstitialRequest :
+                // 전면 광고 로딩
+                adlibManager.interstitialStart();
+                break;
+        }
+
     }
 }

@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.adnexttestproject.banner.ADNextBannerActivity;
+import com.adnexttestproject.banner.ADNextBannerDynamicActivity;
+import com.adnexttestproject.banner.ADNextBannerDynamicSizeActivity;
+import com.adnexttestproject.interstitial.ADNextInterstitialActivity;
+
 import java.util.ArrayList;
 
 public class MainActivity extends ListActivity {
@@ -37,22 +42,22 @@ public class MainActivity extends ListActivity {
         Intent intent = null;
         switch (position) {
             case 0: // banner (Static)
-                intent = new Intent(this, TestActivity1.class);
+                intent = new Intent(this, ADNextBannerActivity.class);
                 startActivity(intent);
                 break;
 
             case 1: // banner (Dynamic)
-                intent = new Intent(this, TestActivity2.class);
+                intent = new Intent(this, ADNextBannerDynamicActivity.class);
                 startActivity(intent);
                 break;
 
             case 2: // banner (Dynamic Size)
-                intent = new Intent(this, TestActivity3.class);
+                intent = new Intent(this, ADNextBannerDynamicSizeActivity.class);
                 startActivity(intent);
                 break;
 
             case 3: // Interstitial
-                intent = new Intent(this, TestActivity4.class);
+                intent = new Intent(this, ADNextInterstitialActivity.class);
                 startActivity(intent);
                 break;
         }
