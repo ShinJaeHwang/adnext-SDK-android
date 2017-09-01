@@ -45,7 +45,7 @@ adlibManager.setAdListener(new AdlibAdListener() {
 ```
 
 ### 단계2.광고 호출
-- 전면 배너가 필요한 시점에 interstitialStart() 
+- 전면 배너가 필요한 시점에 interstitialStart() 호출
 ```java
 // 전면 광고 로딩
 adlibManager.interstitialStart();
