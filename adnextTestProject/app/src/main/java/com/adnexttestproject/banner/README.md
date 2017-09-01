@@ -99,6 +99,9 @@ adlibManager.destoryBannerView();
 
 ```java
 // 광고 호출 - 커스텀
-// 320, 50 - 기본 사이즈
-adlibManager.bannerViewLoad(adView, 320, 100);                        
+// 애드립 띠배너 기본 사이즈 320 * 50
+// 1. 광고 뷰
+// 2. 광고 가로 사이즈
+// 3. 광고 세로 사이즈
+adlibManager.bannerViewLoad(adView, 320, 50);                        
 ```
