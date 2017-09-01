@@ -1,15 +1,20 @@
-# ADNext Android SDK 적용 샘플 프로젝트
+# ADNext AOS SDK 적용 가이드
+> ADNext AOS SDK를 사용하여 애드립 광고를 노출하는 방법을 제공합니다.<br>
 
-애드립 광고를 적용하기 위한 샘플 프로젝트를 포함합니다. <br>
-<br>
 
-## 프로젝트 설정 및 가이드 
-* [프로젝트 설정 가이드 링크 #1](http://developer.adlibr.com/ssp_android_guide.html)
-* [프로젝트 설정 가이드 링크 #2](./adlibrTestProject/README.md)
-<br>
+## 지원 광고 플랫폼
+- ADLIB AD Network
 
-## SDK Version History
 
-SDK version 1.0 (2017.09.01)
->애드 네트워크 적용 SDK 업로드 <br>
->띠/전면 배너로 애드립 광고 사용 가능합니다. <br>
+## 개발환경
+- 최소 SDK Version : Android 19
+- Compile SDK : Android 22 이상
+- Build Tool : Android Stdio 권장
+<br><br>
+
+## 프로젝트 연동
+
+### 기본 설정
+
+#### 단계1. ADNext 라이브러리 적용
+- AAR 다운로드 링크(../AAR)
