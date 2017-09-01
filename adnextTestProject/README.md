@@ -126,6 +126,8 @@ dependencies {
  ...
 ```
 
+<br>
+
 ### 전면 배너 연동
 
 - ADNext 기본 전면 배너
