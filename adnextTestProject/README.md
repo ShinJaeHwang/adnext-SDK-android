@@ -14,8 +14,9 @@
 
 ## 프로젝트 연동
 
-### 기본 설정 - ADNext 라이브러리 적용
+### 기본 설정
 
+#### ADNext 라이브러리 적용
 * [AAR 다운로드 링크](../AAR)
 - 위 링크에서 adnext.*.*.*.*.aar 파일을 다운 받아 프로젝트의 app/libs 폴더로 이동
 - build.gradle(Module:app)에서 라이브러리 적용
@@ -33,14 +34,29 @@ dependencies {
 }
 ```
 
+<br>
 
 ### 띠 배너 연동
 
+#### 단계1. 레이아웃 생성
+- 배너 광고를 넣을 레이아웃 생성
+```XML
+ ...
+   <FrameLayout
+        android:id="@+id/abs"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true">
+   </FrameLayout>
+ ...
+```
+
+#### 단계2. 레이아웃 생성
 - AdlibManager 생성 및 초기화 이후 배너 광고 호출
 - Activity Life Cycle에 맞게 AdlibManager 호출
 
 ```java
-
+ ...
     private AdlibManager adlibManager;                                            // 애드립 매니저
     private FrameLayout abs;                                                      // 배너 광고 레이아웃
 
@@ -104,5 +120,5 @@ dependencies {
         super.onDestroy();
         adlibManager.onDestroy();
     }
-
+ ...
 ```
