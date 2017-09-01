@@ -38,6 +38,9 @@ dependencies {
 
 ### 띠 배너 연동
 
+- ADNext 기본 띠배너
+- 참고 : [띠배너 샘플 링크](./app/src/main/java/com/adnexttestproject/banner/README.md)
+
 #### 단계1. 레이아웃 생성
 - 배너 광고를 넣을 레이아웃 생성
 ```XML
@@ -63,10 +66,7 @@ dependencies {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test1);
-
-        // 배너 광고 레이아웃
-        abs = (FrameLayout) findViewById(R.id.abs);
+        setContentView(R.layout.activity_adnextbanner);
 
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
@@ -98,6 +98,9 @@ dependencies {
                 Log.d("ADNext", "[Banner] onClosed");
             }
         });
+
+        // 배너 광고 레이아웃
+        abs = (FrameLayout) findViewById(R.id.abs);
 
         // 배너 광고 로딩
         adlibManager.bannerViewLoad(abs);
