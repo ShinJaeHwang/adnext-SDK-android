@@ -45,7 +45,7 @@ adlibManager.setAdListener(new AdlibAdListener() {
 ```
 
 ### 단계2.광고 호출
-> 전면 배너 광고는 액티비티를 
+> 전면 배너 광고는 라이브러리에 포함됨 전면 광고 액티비티를 호출하여 보여주는 형태로 제공
 
 - 전면 배너가 필요한 시점에 interstitialStart() 호출
 ```java
