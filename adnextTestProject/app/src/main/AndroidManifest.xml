@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".banner.ADNextBannerActivity" />
         <activity android:name=".banner.ADNextBannerDynamicActivity" />
-        <activity android:name=".banner.ADNextBannerDynamicSizeActivity" />
+        <activity android:name=".banner.ADNextBannerCustomActivity" />
         <activity android:name=".interstitial.ADNextInterstitialActivity"></activity>
     </application>
 

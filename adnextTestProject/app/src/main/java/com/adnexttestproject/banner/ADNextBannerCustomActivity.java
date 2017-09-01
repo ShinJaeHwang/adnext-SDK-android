@@ -13,8 +13,8 @@ import com.mocoplex.adnext.AdlibAdListener;
 import com.mocoplex.adnext.AdlibManager;
 import com.mocoplex.adnext.common.AdlibState;
 
-// Banner (Dynamic Size)
-public class ADNextBannerDynamicSizeActivity extends AppCompatActivity implements
+// Banner (Custom Size)
+public class ADNextBannerCustomActivity extends AppCompatActivity implements
         View.OnClickListener {
 
     private AdlibManager adlibManager;                                            // 애드립 매니저
@@ -24,7 +24,7 @@ public class ADNextBannerDynamicSizeActivity extends AppCompatActivity implement
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adnextbannerdynamicsize);
+        setContentView(R.layout.activity_adnextbannercustom);
 
         // 버튼 클릭 리스너
         findViewById(R.id.btn1).setOnClickListener(this);
@@ -42,22 +42,22 @@ public class ADNextBannerDynamicSizeActivity extends AppCompatActivity implement
         adlibManager.setAdListener(new AdlibAdListener() {
             @Override
             public void onReceiveAd() {
-                Log.d("ADNext", "[Banner_Dynamic_Size] onReceiveAd ");
+                Log.d("ADNext", "[Banner_Custom] onReceiveAd ");
             }
 
             @Override
             public void onFailedToReceiveAd(AdlibState error) {
-                Log.d("ADNext", "[Banner_Dynamic_Size] onFailedToReceiveAd " + error.toString());
+                Log.d("ADNext", "[Banner_Custom] onFailedToReceiveAd " + error.toString());
             }
 
             @Override
             public void onClicked() {
-                Log.d("ADNext", "[Banner_Dynamic_Size] onClickAd");
+                Log.d("ADNext", "[Banner_Custom] onClickAd");
             }
 
             @Override
             public void onClosed() {
-                Log.d("ADNext", "[Banner_Dynamic_Size] onClosed");
+                Log.d("ADNext", "[Banner_Custom] onClosed");
             }
         });
 

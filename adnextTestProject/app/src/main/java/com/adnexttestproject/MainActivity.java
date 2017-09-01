@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.adnexttestproject.banner.ADNextBannerActivity;
 import com.adnexttestproject.banner.ADNextBannerDynamicActivity;
-import com.adnexttestproject.banner.ADNextBannerDynamicSizeActivity;
+import com.adnexttestproject.banner.ADNextBannerCustomActivity;
 import com.adnexttestproject.interstitial.ADNextInterstitialActivity;
 
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class MainActivity extends ListActivity {
                 break;
 
             case 2: // banner (Dynamic Size)
-                intent = new Intent(this, ADNextBannerDynamicSizeActivity.class);
+                intent = new Intent(this, ADNextBannerCustomActivity.class);
                 startActivity(intent);
                 break;
 

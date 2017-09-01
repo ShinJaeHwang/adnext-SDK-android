@@ -60,6 +60,18 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
 
     }
 
+    // 버튼 클릭 이벤트
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnInterstitialRequest :
+                // 전면 광고 로딩
+                adlibManager.interstitialStart();
+                break;
+        }
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -76,17 +88,5 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
     protected void onDestroy() {
         super.onDestroy();
         adlibManager.onDestroy();
-    }
-
-    // 버튼 클릭 이벤트
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnInterstitialRequest :
-                // 전면 광고 로딩
-                adlibManager.interstitialStart();
-                break;
-        }
-
     }
 }
