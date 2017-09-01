@@ -49,7 +49,7 @@ adlibManager.setAdListener(new AdlibAdListener() {
 
 #### 1. XML 사용
 - 광고 노출이 필요한 Activity XML 에 레이아웃을 추가
-- AdlibManager 뷰 설정 및 시작
+- AdlibManager 띠 배너 로드
 
 ```xml
    <FrameLayout
@@ -59,7 +59,7 @@ adlibManager.setAdListener(new AdlibAdListener() {
         android:layout_alignParentBottom="true">
    </FrameLayout>
 
-// 띠배너 뷰 설정 및 시작
+// 띠 배너 로드
 adlibManager.bannerViewLoad(abs);
 
 ```
@@ -70,17 +70,19 @@ adlibManager.bannerViewLoad(abs);
 
 ```java
 // 레이아웃 동적 생성
-LinearLayout adView = new LinearLayout(this);'
+LinearLayout adView = new LinearLayout(this);
 // 레이아웃 사이즈 설정
 adView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100));
 
 ...
 
+// 띠 배너 로드
 adlibManager.bannerViewLoad(adView);
 ```
 
 - 동적 생성의 경우 광고 영역 삭제가 필요한 경우
 
 ```java
+// 띠 배너 삭제
 adlibManager.destoryBannerView();
 ```
