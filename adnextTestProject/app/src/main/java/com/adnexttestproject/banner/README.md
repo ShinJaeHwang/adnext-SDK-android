@@ -70,9 +70,12 @@ adlibManager.bannerViewLoad(abs);
 
 ```java
 // 레이아웃 동적 생성
-LinearLayout adView = new LinearLayout(this);
-adView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100));   // 레이아웃 사이즈 설정
+LinearLayout adView = new LinearLayout(this);'
+// 레이아웃 사이즈 설정
+adView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100));
+
 ...
+
 adlibManager.bannerViewLoad(adView);
 ```
 
