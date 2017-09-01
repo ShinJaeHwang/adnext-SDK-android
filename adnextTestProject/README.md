@@ -18,3 +18,18 @@
 
 #### 단계1. ADNext 라이브러리 적용
 * [AAR 다운로드 링크](../AAR)
+- 위 링크에서 adnext.*.*.*.*.aar 파일을 다운 받아 프로젝트의 app/libs 폴더로 이동
+- gradle에서 라이브러리 적용
+```java
+dependencies {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    
+ ...
+ 
+    compile(name: 'adnext.1.0.0.0', ext: 'aar')                      // ADNext Library
+}
+```
