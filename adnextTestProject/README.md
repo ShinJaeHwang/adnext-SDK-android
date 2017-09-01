@@ -38,8 +38,8 @@ dependencies {
 
 ### 띠 배너 연동
 
-- ADNext 기본 띠배너
-- 참고 : [띠배너 샘플 링크](./app/src/main/java/com/adnexttestproject/banner/README.md)
+- ADNext 기본 띠 배너
+- 참고 : [띠 배너 샘플 링크](./app/src/main/java/com/adnexttestproject/banner/README.md)
 
 #### 단계1. 레이아웃 생성
 - 배너 광고를 넣을 레이아웃 생성
@@ -125,3 +125,8 @@ dependencies {
     }
  ...
 ```
+
+### 전면 배너 연동
+
+- ADNext 기본 전면 배너
+- 참고 : [전면 배너 샘플 링크](./app/src/main/java/com/adnexttestproject/interstitial/README.md)
