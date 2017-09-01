@@ -18,7 +18,7 @@
 
 #### ADNext 라이브러리 적용
 * [AAR 다운로드 링크](../AAR)
-- 위 링크에서 adnext.*.*.*.*.aar 파일을 다운 받아 프로젝트의 app/libs 폴더로 이동
+- 위 링크에서 최신버전 adnext.*.*.*.*.aar 파일을 다운 받아 프로젝트의 app/libs 폴더로 이동
 - build.gradle(Module:app)에서 라이브러리 적용
 ```java
 dependencies {
@@ -45,13 +45,13 @@ dependencies {
    <FrameLayout
         android:id="@+id/abs"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true">
    </FrameLayout>
  ...
 ```
 
-#### 단계2. 레이아웃 생성
+#### 단계2. AdlibManager 생성 및 사용
 - AdlibManager 생성 및 초기화 이후 배너 광고 호출
 - Activity Life Cycle에 맞게 AdlibManager 호출
 
