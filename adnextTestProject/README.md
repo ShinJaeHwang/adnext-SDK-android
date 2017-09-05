@@ -3,7 +3,7 @@
 
 
 ## 지원 광고 플랫폼
-- ADLIB AD Network
+- ADNext AD Network
 
 
 ## 개발환경
@@ -54,13 +54,13 @@ dependencies {
  ...
 ```
 
-#### 단계2. AdlibManager 생성 및 사용
-- AdlibManager 생성 및 초기화 이후 배너 광고 호출
-- Activity Life Cycle에 맞게 AdlibManager 호출
+#### 단계2. ADNextManager 생성 및 사용
+- ADNextManager 생성 및 초기화 이후 배너 광고 호출
+- Activity Life Cycle에 맞게 ADNextManager 호출
 
 ```java
  ...
-    private AdlibManager adlibManager;                                            // 애드립 매니저
+    private ADNextManager adnextManager;                                            // 애드립 매니저
     private FrameLayout abs;                                                      // 배너 광고 레이아웃
 
     @Override
@@ -70,21 +70,21 @@ dependencies {
 
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
+        adnextManager = new ADNextManager(this, ADNextTestProjectConstants.ADNEXT_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adlibManager.setTestMode(AdlibTestProjectConstants.ADLIB_TEST_MODE);
+        adnextManager.setTestMode(ADNextTestProjectConstants.ADNEXT_TEST_MODE);
 
         // 애드립 광고 리스너 등록
-        adlibManager.setAdListener(new AdlibAdListener() {
+        adnextManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
                 Log.d("ADNext", "[Banner] onReceiveAd ");
             }
 
             @Override
-            public void onFailedToReceiveAd(AdlibState error) {
+            public void onFailedToReceiveAd(ADNextState error) {
                 Log.d("ADNext", "[Banner] onFailedToReceiveAd " + error.toString());
             }
 
@@ -103,25 +103,25 @@ dependencies {
         abs = (FrameLayout) findViewById(R.id.abs);
 
         // 배너 광고 로딩
-        adlibManager.bannerViewLoad(abs);
+        adnextManager.bannerViewLoad(abs);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        adlibManager.onResume();
+        adnextManager.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        adlibManager.onPause();
+        adnextManager.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adlibManager.onDestroy();
+        adnextManager.onDestroy();
     }
  ...
 ```
@@ -133,13 +133,13 @@ dependencies {
 - ADNext 기본 전면 배너
 - 참고 : [전면 배너 샘플 링크](./app/src/main/java/com/adnexttestproject/interstitial/README.md)
 
-#### AdlibManager 생성 및 사용
-- AdlibManager 생성 및 초기화 이후 전면 광고 호출
-- Activity Life Cycle에 맞게 AdlibManager 호출
+#### ADNextManager 생성 및 사용
+- ADNextManager 생성 및 초기화 이후 전면 광고 호출
+- Activity Life Cycle에 맞게 ADNextManager 호출
 
 ```java
  ...
-    private AdlibManager adlibManager;
+    private ADNextManager adnextManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,21 +151,21 @@ dependencies {
 
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
+        adnextManager = new ADNextManager(this, ADNextTestProjectConstants.ADNEXT_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adlibManager.setTestMode(AdlibTestProjectConstants.ADLIB_TEST_MODE);
+        adnextManager.setTestMode(ADNextTestProjectConstants.ADNEXT_TEST_MODE);
 
         // 애드립 광고 리스너 등록
-        adlibManager.setAdListener(new AdlibAdListener() {
+        adnextManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
                 Log.d("ADNext", "[Interstitial] onReceiveAd ");
             }
 
             @Override
-            public void onFailedToReceiveAd(AdlibState error) {
+            public void onFailedToReceiveAd(ADNextState error) {
                 Log.d("ADNext", "[Interstitial] onFailedToReceiveAd " + error.toString());
                 Toast.makeText(getApplicationContext(), "광고수신 실패 :)", Toast.LENGTH_SHORT).show();
             }
@@ -189,7 +189,7 @@ dependencies {
         switch (v.getId()) {
             case R.id.btnInterstitialRequest :
                 // 전면 광고 로딩
-                adlibManager.interstitialStart();
+                adnextManager.interstitialStart();
                 break;
         }
 
@@ -198,19 +198,19 @@ dependencies {
     @Override
     protected void onResume() {
         super.onResume();
-        adlibManager.onResume();
+        adnextManager.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        adlibManager.onPause();
+        adnextManager.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adlibManager.onDestroy();
+        adnextManager.onDestroy();
     }
  ...
 ```

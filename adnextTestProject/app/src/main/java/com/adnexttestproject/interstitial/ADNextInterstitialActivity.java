@@ -16,7 +16,7 @@ import com.mocoplex.adnext.common.ADNextState;
 public class ADNextInterstitialActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    private ADNextManager adlibManager;
+    private ADNextManager adNextManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,16 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
         // 버튼 클릭 리스너
         findViewById(R.id.btnInterstitialRequest).setOnClickListener(this);
 
-        // 애드립 매니저 생성
-        //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adlibManager = new ADNextManager(this, ADNextTestProjectConstants.ADLIB_API_KEY);
+        // 매니저 생성
+        //  - 앱 키값을 필수로 넣어주어야 합니다
+        adNextManager = new ADNextManager(this, ADNextTestProjectConstants.ADNEXT_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adlibManager.setTestMode(ADNextTestProjectConstants.ADLIB_TEST_MODE);
+        adNextManager.setTestMode(ADNextTestProjectConstants.ADNEXt_TEST_MODE);
 
-        // 애드립 광고 리스너 등록
-        adlibManager.setAdListener(new ADNextAdListener() {
+        // 광고 리스너 등록
+        adNextManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
                 Log.d("ADNext", "[Interstitial] onReceiveAd ");
@@ -66,7 +66,7 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
         switch (v.getId()) {
             case R.id.btnInterstitialRequest :
                 // 전면 광고 로딩
-                adlibManager.interstitialStart();
+                adNextManager.interstitialStart();
                 break;
         }
 
@@ -75,18 +75,18 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        adlibManager.onResume();
+        adNextManager.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        adlibManager.onPause();
+        adNextManager.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adlibManager.onDestroy();
+        adNextManager.onDestroy();
     }
 }

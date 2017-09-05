@@ -31,15 +31,15 @@ public class ADNextBannerDynamicActivity extends AppCompatActivity implements
         findViewById(R.id.btn1).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
 
-        // 애드립 매니저 생성
-        //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adNextManager = new ADNextManager(this, ADNextTestProjectConstants.ADLIB_API_KEY);
+        // 매니저 생성
+        //  - 앱 키값을 필수로 넣어주어야 합니다
+        adNextManager = new ADNextManager(this, ADNextTestProjectConstants.ADNEXT_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adNextManager.setTestMode(ADNextTestProjectConstants.ADLIB_TEST_MODE);
+        adNextManager.setTestMode(ADNextTestProjectConstants.ADNEXt_TEST_MODE);
 
-        // 애드립 광고 리스너 등록
+        // 광고 리스너 등록
         adNextManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
