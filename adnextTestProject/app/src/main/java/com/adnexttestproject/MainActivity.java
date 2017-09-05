@@ -25,7 +25,7 @@ public class MainActivity extends ListActivity {
         ArrayList<String> itemList = new ArrayList<String>();
         itemList.add("Banner");
         itemList.add("Banner (Dynamic)");
-        itemList.add("Banner (Dynamic Size)");
+        itemList.add("Banner (Custom Size)");
         itemList.add("Interstitial");
 
         // 어댑터 생성

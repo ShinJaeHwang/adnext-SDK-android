@@ -6,17 +6,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.adnexttestproject.AdlibTestProjectConstants;
+import com.adnexttestproject.ADNextTestProjectConstants;
 import com.adnexttestproject.R;
-import com.mocoplex.adnext.AdlibAdListener;
-import com.mocoplex.adnext.AdlibManager;
-import com.mocoplex.adnext.common.AdlibState;
+import com.mocoplex.adnext.ADNextAdListener;
+import com.mocoplex.adnext.ADNextManager;
+import com.mocoplex.adnext.common.ADNextState;
 
 // Interstitial
 public class ADNextInterstitialActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    private AdlibManager adlibManager;
+    private ADNextManager adlibManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +28,21 @@ public class ADNextInterstitialActivity extends AppCompatActivity implements
 
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
+        adlibManager = new ADNextManager(this, ADNextTestProjectConstants.ADLIB_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adlibManager.setTestMode(AdlibTestProjectConstants.ADLIB_TEST_MODE);
+        adlibManager.setTestMode(ADNextTestProjectConstants.ADLIB_TEST_MODE);
 
         // 애드립 광고 리스너 등록
-        adlibManager.setAdListener(new AdlibAdListener() {
+        adlibManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
                 Log.d("ADNext", "[Interstitial] onReceiveAd ");
             }
 
             @Override
-            public void onFailedToReceiveAd(AdlibState error) {
+            public void onFailedToReceiveAd(ADNextState error) {
                 Log.d("ADNext", "[Interstitial] onFailedToReceiveAd " + error.toString());
                 Toast.makeText(getApplicationContext(), "광고수신 실패 :)", Toast.LENGTH_SHORT).show();
             }

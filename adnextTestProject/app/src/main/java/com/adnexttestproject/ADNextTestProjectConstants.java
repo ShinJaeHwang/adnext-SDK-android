@@ -4,7 +4,7 @@ package com.adnexttestproject;
  * Created by lineplus on 2017. 8. 4..
  */
 
-public class AdlibTestProjectConstants {
+public class ADNextTestProjectConstants {
     // 애드립 광고 키
     public static String ADLIB_API_KEY = "58e49a730cf2618bf59e46d6";
 

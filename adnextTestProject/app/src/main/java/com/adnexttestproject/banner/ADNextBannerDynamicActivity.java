@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.adnexttestproject.AdlibTestProjectConstants;
+import com.adnexttestproject.ADNextTestProjectConstants;
 import com.adnexttestproject.R;
-import com.mocoplex.adnext.AdlibAdListener;
-import com.mocoplex.adnext.AdlibManager;
-import com.mocoplex.adnext.common.AdlibState;
+import com.mocoplex.adnext.ADNextManager;
+import com.mocoplex.adnext.ADNextAdListener;
+import com.mocoplex.adnext.common.ADNextState;
 
 // Banner (Dynamic)
 public class ADNextBannerDynamicActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    private AdlibManager adlibManager;                                            // 애드립 매니저
+    private ADNextManager adNextManager;                                            // 애드립 매니저
     private ViewGroup vg;                                                         // 루트 뷰
     private LinearLayout adView;                                                  // 광고 레이아웃
 
@@ -33,21 +33,21 @@ public class ADNextBannerDynamicActivity extends AppCompatActivity implements
 
         // 애드립 매니저 생성
         //  - 애드립 앱 키값을 필수로 넣어주어야 합니다
-        adlibManager = new AdlibManager(this, AdlibTestProjectConstants.ADLIB_API_KEY);
+        adNextManager = new ADNextManager(this, ADNextTestProjectConstants.ADLIB_API_KEY);
 
         // 테스트 모드 셋팅
         //  - 테스트 광고 노출로, 상용일 경우 꼭 제거해야 합니다
-        adlibManager.setTestMode(AdlibTestProjectConstants.ADLIB_TEST_MODE);
+        adNextManager.setTestMode(ADNextTestProjectConstants.ADLIB_TEST_MODE);
 
         // 애드립 광고 리스너 등록
-        adlibManager.setAdListener(new AdlibAdListener() {
+        adNextManager.setAdListener(new ADNextAdListener() {
             @Override
             public void onReceiveAd() {
                 Log.d("ADNext", "[Banner_Dynamic] onReceiveAd ");
             }
 
             @Override
-            public void onFailedToReceiveAd(AdlibState error) {
+            public void onFailedToReceiveAd(ADNextState error) {
                 Log.d("ADNext", "[Banner_Dynamic] onFailedToReceiveAd " + error.toString());
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
@@ -75,25 +75,25 @@ public class ADNextBannerDynamicActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        adlibManager.onResume();
+        adNextManager.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        adlibManager.onPause();
+        adNextManager.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adlibManager.onDestroy();
+        adNextManager.onDestroy();
     }
 
     // 뷰가 노출 되어야하는 시점에 호출
     private void AddDynamicView() {
         if (adView != null) {
-            adlibManager.bannerViewLoad(adView);                                  // 광고 호출 - 일반
+            adNextManager.bannerViewLoad(adView);                                  // 광고 호출 - 일반
         }
     }
 
@@ -109,7 +109,7 @@ public class ADNextBannerDynamicActivity extends AppCompatActivity implements
                 break;
 
             case R.id.btn2 :                                                      // Remove Adview
-                adlibManager.destoryBannerView();
+                adNextManager.destoryBannerView();
                 //vg.removeView(adView);
                 break;
         }
