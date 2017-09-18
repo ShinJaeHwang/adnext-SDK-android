@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+<div id="src" onclick="clk();"></div>
+<script>
+window.onload = function(){
+	var that = this;
+	setTimeout(function(){inters_iframe_load.call(that)}, 200);
+};
+
+function inters_iframe_load(){
+    var params = window.location.search.substring( 1 ).split( '&' );
+    var adm;
+    var hreftop;
+ 
+    for( var i = 0, l = params.length; i < l; ++i ) {
+      var parts = params[i].split( '=' );
+      switch( parts[0] ) {
+      case 'adm':
+       adm = decodeURIComponent(parts[1]);
+        break;
+      case 'hreftop':
+       hreftop = decodeURIComponent(parts[1]);
+        break;         
+      }
+    }
+    document.getElementById('src').innerHTML = adm;
+    var elements = document.getElementById('src').getElementsByTagName('a');
+    if(elements.length > 0){
+  	  if(hreftop == '' || hreftop  == null) {
+ 	  	elements[0].setAttribute("target",'_blank');
+ 	  }else{
+ 		elements[0].setAttribute("target",'_top');
+ 	  }
+    }
+};
+
+function clk() {
+	 try{
+		 window.setTimeout(function(){parent.postMessage("adnext_click","*");}, 100);
+	 }catch(e){
+	 }
+}
+</script>
+</body>
+</html>

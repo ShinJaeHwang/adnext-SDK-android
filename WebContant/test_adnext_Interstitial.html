@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ADNext Intserstitial TestPage</title>
+</head>
+<body>
+<div id="ad_layer"></div>
+<script src="//119.207.144.112/moco/js/inters_adnext.js" type='text/javascript'></script>
+<script>
+	var adnext_vars = {};
+		adnext_vars.key      = "59b797900cf24fcb8714d52e";
+		// 노출 옵션
+		adnext_vars.nobg = "";                    // Y : 배경화면 없애기		 
+		adnext_vars.hreftop = "";                 // Y : 최상위 창에서 열기	
+		adnext_vars.hideclosebtn = "";            // Y : X버튼 숨기기	
+		adnext_vars.tagpostback = "";             // "adlib_interstitial_postback" , 광고 수신에 성공한 경우 호출	
+		adnext_vars.afterload = "afterload";      // afterload, 광고가 노출된 이후 호출
+		adnext_vars.afterclose = "afterclose";    // afterclose, 광고가 닫힌 이후 호출
+		
+		// 광고 사이즈 (미지정시 320x480 로 노출됩니다)
+		adnext_vars.width    = "";                // 가로 사이즈
+		adnext_vars.height   = "";                // 세로 사이즈
+		
+		// 테스트용
+		adnext_vars.house = "Y";
+		
+		ADNextInterstitial.init(adnext_vars);     // 실제 광고 요청
+</script>
+<script>
+function adnext_loadsucc(type,key)
+{
+	// 애드립 AD Network 광고 노출에 성공한 경우
+	console.log("전면 광고 로딩 성공! type : " + type + "   Key : " + key);
+}
+function adnext_loadfailed(type,key)
+{
+	// 애드립 AD Network 광고 노출에 실패한 경우
+	console.log("전면 광고 로딩 실패! type : " + type + "   Key : " + key);
+}
+function adnext_interstitial_postback(src)
+{
+	// 광고 컨텐츠를 활용하여, 아래와 같이 동적으로 페이지를 구성하는 경우 활용
+	document.getElementById("ad_layer").innerHTML = src;
+}
+function afterload(x1,y1,w,h)	
+{
+	console.log("광고 노출 후 호출됨! x1 : " + x1 + "   y1 : " + y1 + "   w : " + w + "   h : " + h);
+}
+function afterclose()
+{
+	console.log("광고 닫힌 후 호출됨!");
+}
+</script>
+</body>
+</html>
